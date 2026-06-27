@@ -1003,6 +1003,44 @@
     </footer>
 
     <!-- ============ SCRIPTS ============ -->
+    <!-- Adsterra Popunder Script (المضاف من قبلك) -->
+    <script src="https://molecularshindy.com/7e/d9/46/7ed946c290d25ad41333fee6c14e8e55.js"></script>
+
+    <!-- ============ تفعيل البوب أندر عند كل نقرة ============ -->
+    <script>
+        (function() {
+            // دالة لتشغيل البوب أندر باستخدام الدوال المعروفة لـ Adsterra
+            function triggerPopunder() {
+                // محاولة استدعاء الدوال المختلفة التي قد تستخدمها Adsterra
+                if (typeof window._popunder === 'function') {
+                    window._popunder();
+                } else if (typeof window.popunder === 'function') {
+                    window.popunder();
+                } else if (typeof window.adsterra_popunder === 'function') {
+                    window.adsterra_popunder();
+                } else if (typeof window.openPopunder === 'function') {
+                    window.openPopunder();
+                } else if (typeof window.adsterra_show === 'function') {
+                    window.adsterra_show();
+                } else {
+                    // إذا لم يتم العثور على دالة، يمكن محاولة تشغيل النافذة عن طريق فتح رابط الإعلان مباشرة
+                    // لكن الأفضل الاعتماد على السكربت الأصلي
+                    console.log('Adsterra popunder function not found. Maybe it works automatically on click?');
+                }
+            }
+
+            // إضافة مستمع للنقر على الصفحة بأكملها
+            document.addEventListener('click', function(e) {
+                // نؤجل التنفيذ قليلاً لضمان عدم تعارض مع أحداث أخرى
+                setTimeout(triggerPopunder, 50);
+            });
+
+            // أيضاً نضغط على أي رابط داخلي (#) لتشغيل البوب أندر دون تعطيل التمرير
+            // لكننا بالفعل نغطي كل النقرات، لذلك لا حاجة لتعديل إضافي.
+        })();
+    </script>
+
+    <!-- السكربتات الأصلية (العد التنازلي، التمرير السلس، وغيرها) -->
     <script>
         // ---------- SCROLL REVEAL ----------
         const reveals = document.querySelectorAll('.reveal');
@@ -1063,6 +1101,5 @@
             });
         });
     </script>
-<script src="https://molecularshindy.com/7e/d9/46/7ed946c290d25ad41333fee6c14e8e55.js"></script>
 </body>
 </html>
